@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+<!-- Banner Section (no overlay text) -->
+<section>
+    <img src="/images/STEELWordmarkBlackBG.PNG" 
+         alt="STEEL Banner" 
+         style="width:100%; height:auto; display:block; margin:0 auto;" />
+</section>
+
+<!-- Apply Now Button -->
+<section style="text-align: center; margin: 2rem 0;">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqrokxu_oJwTWZZ01NR9Y0A7aaW9Tn6GgKXKZTPV_zC3JOCQ/viewform?usp=header" 
+       target="_blank"
+       style="
+           background-color: gold;
+           color: black;
+           padding: 1rem 2rem;
+           text-decoration: none;
+           font-weight: bold;
+           border-radius: 0.5rem;
+           font-size: 1.2rem;
+       ">
+        Apply Now
+    </a>
+</section>
+
+<!-- Main content -->
+<main style="padding: 2rem; max-width: 900px; margin: auto; text-align: center;">
+    {{ .Content }}
+</main>
+{{ end }}

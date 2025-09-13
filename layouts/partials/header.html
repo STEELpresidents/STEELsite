@@ -1,0 +1,65 @@
+<header>
+    <nav style="background-color:black; padding:0; margin:0;">
+        <div class="header-container flex items-center justify-between w-full" style="padding:0;">  <!-- Removed left/right padding -->
+            
+            <!-- Logo -->
+            <a href="{{ .Site.BaseURL }}" style="display:flex; align-items:center; margin-left:0;">
+                <img src="{{ .Site.Params.logo.main | relURL }}" 
+                     alt="{{ .Site.Params.logo.alt }}" 
+                     style="height:75px; width:auto;" />
+            </a>
+
+            <!-- Navigation Menu -->
+            <div class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+                <div class="text-lg lg:flex-grow"></div>
+                <div class="text-lg flex gap-4">
+                    {{ range .Site.Menus.main }}
+                    <a href="{{ .URL | safeURL }}" 
+                       style="
+                           background-color:silver; 
+                           color:black; 
+                           padding:0.75rem 1.5rem; 
+                           font-weight:bold; 
+                           text-decoration:none;
+                           transition:opacity 0.2s;
+                           display:flex;
+                           align-items:center;
+                       " 
+                       onmouseover="this.style.opacity='0.7'" 
+                       onmouseout="this.style.opacity='1'">
+                        {{ .Name }}
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <div class="block lg:hidden">
+                <div id="hamburgerbtn" class="flex cursor-pointer items-center w-14 h-10 py-2 mopen">
+                    <span class="top"></span>
+                    <span class="middle"></span>
+                    <span class="bottom"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const scrollBtn = document.querySelector(".scroll-top");
+
+    // Show button when scrolling down
+    window.addEventListener("scroll", function () {
+      if (document.documentElement.scrollTop > 300 || document.body.scrollTop > 300) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    });
+
+    // Smooth scroll to top
+    scrollBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+</script>
+</header>

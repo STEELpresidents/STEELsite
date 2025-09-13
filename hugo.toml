@@ -1,0 +1,47 @@
+baseURL = "https://steelcomms.org/"
+languageCode = "en-us"
+title = "STEEL"
+theme = "tella"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  hero_image = "images/STEELWordmarkBlackBG.PNG"
+
+[params.logo]
+  main = "images/STEEL Square Clear.PNG"
+  alt = "STEEL Logo"
+  size = "h-10"
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "About Us"
+  url = "/about/"
+  weight = 2
+
+[[menu.main]]
+  name = "Projects"
+  url = "/projects/"
+  weight = 3
+
+[[menu.main]]
+  name = "Membership"
+  url = "/membership/"
+  weight = 4
+
+[[menu.main]]
+  name = "Resources"
+  url = "/resources/"
+  weight = 5
+
+[[menu.main]]
+  name = "Donate"
+  url = "/donate/"
+  weight = 6
