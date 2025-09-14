@@ -1,67 +1,53 @@
-<footer class="bg-tlgray-100">
-  {{ if not .IsHome }}
-  <script src='{{ "/js/clipboard.min.js" | relURL }}'></script>
-  <script src='{{ "/js/highlight.min.js" | relURL }}'></script>
-  <script src='{{ "/js/highlightjs-line-numbers.min.js" | relURL }}'></script>
-  <script src='{{ "/js/sweetalert2.min.js" | relURL }}'></script>
-  <script>
-    hljs.initHighlightingOnLoad();
-    hljs.initLineNumbersOnLoad();
-    new ClipboardJS('.url');
+<footer style="background-color:#1f2937; color:white; width:100%;">
 
-    function OnClickURL() {
-      Swal.fire({
-        icon: 'success',
-        title: 'Copied!',
-        text: 'Copied the URL and title.'
-      })
-    }
-  </script>
-  {{ end }}
-  <script>
-    function toggleNav() {
-      var hamburger = document.getElementById("hamburgerbtn");
-      var overlay = document.getElementById("overlay");
-      var body = document.body;
+  <!-- Footer Sections -->
+  <div style="display:flex; justify-content:space-between; flex-wrap:wrap; padding:24px; max-width:1200px; margin:0 auto;">
 
-      hamburger.addEventListener("click", function () {
-        overlay.classList.toggle("open");
-        hamburger.classList.toggle("is-open");
-        body.classList.toggle("scroll-lock");
-      });
-    }
-    toggleNav();
-
-    document.querySelector('.scroll-top').addEventListener('click', () => {
-      document.documentElement.scrollTop = 0;
-    });
-  </script>
-  {{ if .Site.Params.googleFonts }}
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet" />
-  {{ else }}
-  <link href='{{ "css/webfonts.min.css" | relURL }}' rel="stylesheet" />
-  {{ end }}
-  <div class="flex items-center justify-between flex-wrap bg-gray-800 p-8 text-white">
-    <div class="items-center text-xl text-grey-900 mr-6">
-      {{ .Site.Params.site.name }}
+    <!-- Quick Links -->
+    <div style="flex:1; min-width:200px; margin-right:24px;">
+      <h4 style="font-weight:bold; margin-bottom:8px;">Quick Links</h4>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li><a href="/" style="color:white; text-decoration:none;">Home</a></li>
+        <li><a href="/about-us/" style="color:white; text-decoration:none;">About Us</a></li>
+        <li><a href="/events/" style="color:white; text-decoration:none;">Events</a></li>
+        <li><a href="/donate/" style="color:white; text-decoration:none;">Donate</a></li>
+      </ul>
     </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto" id="mobileMenu">
-      <div class="text-lg lg:flex-grow">
-      </div>
-      <div class="flex flex-row items-center text-lg">
-        {{ range .Site.Menus.footer }}
-        <a href="{{ .URL }}" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8">
-          {{ if not .Pre }}
-          {{ .Name }}
-          {{ else }}
-          {{ .Pre }}
-          {{ end }}
-        </a>
-        {{ end }}
-      </div>
+
+    <!-- Contact Info -->
+    <div style="flex:1; min-width:200px; margin-right:24px;">
+      <h4 style="font-weight:bold; margin-bottom:8px;">Contact Us</h4>
+      <ul style="list-style:none; padding:0; margin:0;">
+        <li>Email: <a href="mailto:steelpresidents@gmail.com" style="color:white; text-decoration:none;">
+  steelpresidents@gmail.com
+</a></li>
+      </ul>
     </div>
+
+
+<!-- Social Media -->
+<div style="flex:1; min-width:200px;">
+  <h4 style="font-weight:bold; margin-bottom:8px;">Follow Us</h4>
+  <ul style="display:flex; gap:16px; padding:0; margin:0; list-style:none;">
+    <li><a href="https://www.youtube.com/@STEEL-steelcomms" target="_blank" style="color:white; text-decoration:none;">YouTube</a></li>
+    <li><a href="https://www.instagram.com/steelcomms/" target="_blank" style="color:white; text-decoration:none;">Instagram</a></li>
+    <li><a href="https://www.linkedin.com/company/steelcomms" target="_blank" style="color:white; text-decoration:none;">LinkedIn</a></li>
+  </ul>
+</div>
+
+
   </div>
-  <div class="copy pl-8 py-5 bg-tlgray-700 text-white text-md">
+
+  <!-- Footer Links -->
+  <div style="display:flex; justify-content:center; padding:8px 24px; flex-wrap:wrap; gap:16px;">
+    {{ range .Site.Menus.footer }}
+    <a href="{{ .URL }}" style="color:white; text-decoration:none;">{{ if not .Pre }}{{ .Name }}{{ else }}{{ .Pre }}{{ end }}</a>
+    {{ end }}
+  </div>
+
+  <!-- Copyright -->
+  <div style="background-color:#111827; color:white; padding:8px 24px; text-align:left;">
     &copy; {{site.Title}} {{ now.Year }} All Rights Reserved.
   </div>
+
 </footer>
