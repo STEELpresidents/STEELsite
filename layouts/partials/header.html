@@ -82,4 +82,15 @@
     });
   });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById("hamburgerbtn");
+  const navMenu = document.querySelector(".lg\\:flex"); // target your menu div
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("hidden");
+  });
+});
+</script>
+
 </header>

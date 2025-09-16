@@ -206,6 +206,17 @@
     });
   });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById("hamburgerbtn");
+  const navMenu = document.querySelector(".lg\\:flex"); 
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("hidden");
+  });
+});
+</script>
+
 </header>
 
 
@@ -295,9 +306,10 @@ We host build teams, events, and workshops for students to connect with industry
 
 </footer>
 
-  <button class="scroll-top fixed bottom-6 right-6 bg-yellow-500 text-black font-bold py-2 px-3 rounded-full shadow-lg hidden">
-    ↑
-  </button>
+<button class="scroll-top fixed bottom-6 right-6 bg-yellow-500 text-black font-bold rounded-full shadow-lg hidden w-12 h-12 flex items-center justify-center">
+  ↑
+</button>
+
 </body>
 
 </html>

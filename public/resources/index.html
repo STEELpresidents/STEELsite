@@ -203,10 +203,19 @@
     });
   });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById("hamburgerbtn");
+  const navMenu = document.querySelector(".lg\\:flex"); 
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("hidden");
+  });
+});
+</script>
+
 </header>
-<div class="scroll-top rounded-full">
-      <span class="icon-keyboard_arrow_up text-2xl"></span>
-    </div>
+
 <section class="max-w-5xl mx-auto px-6 py-12">
   
   <h1 class="text-4xl font-bold text-center mb-12">Resources</h1>
@@ -304,9 +313,11 @@
   </div>
 
 </footer>
-<button class="scroll-top fixed bottom-6 right-6 bg-yellow-500 text-black font-bold py-2 px-3 rounded-full shadow-lg hidden">
+
+<button class="scroll-top fixed bottom-6 right-6 bg-yellow-500 text-black font-bold rounded-full shadow-lg hidden w-12 h-12 flex items-center justify-center">
   ↑
 </button>
+
 </body>
 
 </html>
