@@ -51,13 +51,35 @@
   </nav>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const btn = document.getElementById("hamburgerbtn");
-      const menu = document.getElementById("mobileMenu");
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("hamburgerbtn");
+    const menu = document.getElementById("mobileMenu");
+    const scrollBtn = document.querySelector(".scroll-top");
 
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-      });
+    // Mobile menu toggle
+    btn.addEventListener("click", () => {
+      if (menu.classList.contains("hidden")) {
+        menu.classList.remove("hidden");
+        menu.classList.add("flex");
+      } else {
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+      }
     });
-  </script>
+
+    // Show button when scrolling down
+    window.addEventListener("scroll", function () {
+      if (document.documentElement.scrollTop > 300 || document.body.scrollTop > 300) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    });
+
+    // Smooth scroll to top
+    scrollBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+</script>
 </header>
