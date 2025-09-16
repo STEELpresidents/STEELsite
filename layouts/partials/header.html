@@ -1,65 +1,63 @@
 <header>
-    <nav style="background-color:black; padding:0; margin:0;">
-        <div class="header-container flex items-center justify-between w-full" style="padding:0;">  <!-- Removed left/right padding -->
-            
-            <!-- Logo -->
-            <a href="{{ .Site.BaseURL }}" style="display:flex; align-items:center; margin-left:0;">
-                <img src="{{ .Site.Params.logo.main | relURL }}" 
-                     alt="{{ .Site.Params.logo.alt }}" 
-                     style="height:75px; width:auto;" />
-            </a>
+  <nav style="background-color:black; padding:0; margin:0;">
+    <div class="header-container flex items-center justify-between w-full" style="padding:0;">
+      
+      <!-- Logo -->
+      <a href="/" style="display:flex; align-items:center; margin-left:0;">
+        <img src="{{ .Site.Params.logo.main | relURL }}" 
+             alt="{{ .Site.Params.logo.alt }}" 
+             style="height:75px; width:auto;" />
+      </a>
 
-            <!-- Navigation Menu -->
-            <div class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                <div class="text-lg lg:flex-grow"></div>
-                <div class="text-lg flex gap-4">
-                    {{ range .Site.Menus.main }}
-                    <a href="{{ .URL | safeURL }}" 
-                       style="
-                           background-color:silver; 
-                           color:black; 
-                           padding:0.75rem 1.5rem; 
-                           font-weight:bold; 
-                           text-decoration:none;
-                           transition:opacity 0.2s;
-                           display:flex;
-                           align-items:center;
-                       " 
-                       onmouseover="this.style.opacity='0.7'" 
-                       onmouseout="this.style.opacity='1'">
-                        {{ .Name }}
-                    </a>
-                    {{ end }}
-                </div>
-            </div>
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex lg:items-center lg:gap-4">
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL | safeURL }}" 
+           style="
+             background-color:silver; 
+             color:black; 
+             padding:0.75rem 1.5rem; 
+             font-weight:bold; 
+             text-decoration:none;
+             transition:opacity 0.2s;
+             display:flex;
+             align-items:center;
+           "
+           onmouseover="this.style.opacity='0.7'" 
+           onmouseout="this.style.opacity='1'">
+          {{ .Name }}
+        </a>
+        {{ end }}
+      </div>
 
-            <!-- Mobile Hamburger -->
-            <div class="block lg:hidden">
-                <div id="hamburgerbtn" class="flex cursor-pointer items-center w-14 h-10 py-2 mopen">
-                    <span class="top"></span>
-                    <span class="middle"></span>
-                    <span class="bottom"></span>
-                </div>
-            </div>
-        </div>
-    </nav>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const scrollBtn = document.querySelector(".scroll-top");
+      <!-- Mobile Hamburger -->
+      <div class="block lg:hidden">
+        <button id="hamburgerbtn" class="flex flex-col space-y-1.5 cursor-pointer">
+          <span class="block w-6 h-0.5 bg-white"></span>
+          <span class="block w-6 h-0.5 bg-white"></span>
+          <span class="block w-6 h-0.5 bg-white"></span>
+        </button>
+      </div>
+    </div>
 
-    // Show button when scrolling down
-    window.addEventListener("scroll", function () {
-      if (document.documentElement.scrollTop > 300 || document.body.scrollTop > 300) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
-      }
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden flex-col bg-black text-white px-6 py-4 space-y-4 lg:hidden">
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL | safeURL }}" class="block text-lg font-bold hover:opacity-70">
+        {{ .Name }}
+      </a>
+      {{ end }}
+    </div>
+  </nav>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const btn = document.getElementById("hamburgerbtn");
+      const menu = document.getElementById("mobileMenu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
     });
-
-    // Smooth scroll to top
-    scrollBtn.addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  });
-</script>
+  </script>
 </header>
