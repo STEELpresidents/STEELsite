@@ -30,15 +30,14 @@
         {{ end }}
       </div>
 
-      <!-- Mobile Hamburger -->
-      <div class="block lg:hidden">
-        <button id="hamburgerbtn" class="flex flex-col space-y-1.5 cursor-pointer">
-          <span class="block w-6 h-0.5 bg-white"></span>
-          <span class="block w-6 h-0.5 bg-white"></span>
-          <span class="block w-6 h-0.5 bg-white"></span>
-        </button>
-      </div>
-    </div>
+<!-- Mobile Hamburger -->
+<div class="block lg:hidden">
+  <div id="hamburgerbtn" class="flex cursor-pointer items-center w-14 h-10 py-2">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden flex-col bg-black text-white px-6 py-4 space-y-4 lg:hidden">
@@ -81,11 +80,10 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
-</script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.getElementById("hamburgerbtn");
-  const navMenu = document.querySelector(".lg\\:flex"); // target your menu div
+  const navMenu = document.querySelector(".lg\\:flex"); // nav menu section
 
   hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("hidden");
