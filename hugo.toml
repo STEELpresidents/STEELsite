@@ -1,4 +1,4 @@
-baseURL = "https://steelcomms.org/"
+baseURL = "https://steelbuild.org/"
 languageCode = "en-us"
 title = "STEEL"
 theme = "tella"
